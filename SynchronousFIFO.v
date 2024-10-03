@@ -8,10 +8,10 @@
 // Module Name: SYNCHRONOUS FIFO
 // Project Name: SYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
 // Target Devices: 
-// Tool Versions: 
+// Tool Versions: VIVADO 2023.1
 // Description: 
 // 
-// Dependencies: 
+// Dependencies: xc7a100tcsg324-1
 // 
 // Revision:
 // Revision 0.01 - File Created
