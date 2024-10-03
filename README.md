@@ -61,5 +61,82 @@ The designer need not worry about **synchronizing** the two systems because this
 + Asynchronous FIFOs
 
 **Metastability of Synchronizing Circuits**:
+In digital engineering, there is the constantly recurring problem of synchronizing two systems that work at different frequencies, Concurrent read/write FIFOs can also handle the data exchange between two systems of different frequencies, so internal synchronizing  circuits are called for. This section is a brief introduction to the problems that are involved in synchronization.
+
+The problem of synchronizing  an external signal with a local clock generator is solved by using a flip-flop. but this means violating the setup and hold times stated in the data sheets for the devices. As a result the flipflop can go into a metastable state.
+
+
+<img width="503" alt="Picture6" src="https://github.com/user-attachments/assets/d066d5ef-e4a2-45f1-b7b5-192648895f7c">
+
+**Synchronization of External Signal**
+
+
+With a D-type flip-flop, the setup or hold times must be maintained. This means that for a short time before the clock edge (setup time) and for a  short time afterward(hold time) the level o the D input must not change to enure that the function of the flipflop is executed correctly.  If these conditions are  not maintained , the flip-flop can become metastable.
+
+In RS flipflop, metastable states are possible if the reset and set inputs change from the active to the inactive state at the same time. In both cases the flipflop adopts an undefined and unstable, or  metastable, state.
+
+No defined state can be ensured on the Q output. After a time, the flipflop goes into one of the two stable states, but it is impossible to predict.
+
+
+
+<img width="677" alt="Picture7" src="https://github.com/user-attachments/assets/7e1fdc43-636d-4a81-bec8-05dd944c00f8">
+
+**Timing Diagram for the Metastable state**
+
+
+
+The Operating conditions for flipflop can be maintained easily in synchronous circuits. But with asynchronous circuits and in synchronous circuits, violation of the operating conditions for D and RS flipflop are unavoidable. 
+
+Concurrent read/write  FIFOs that are  driven by two systems working asynchronous external signals.
+
+For physical reasons, there  are no ideal flipflops with a setup and hold time of zero. so there can be no synchronizing  circuit(Fclk) and the lenght of critical time  window  (td).
+
+MTBF = 1/fm x fclk x td
+for fclk = 1MHz,
+Fin of 1 KHz , and Td = 30 ps
+
+MTBF = 1/1 kHz x 1 MHz x 30 ps   = 33.3s
+
+
+
+if a flip-flop, it is used  to synchronize  two  signals, you can no longer  expect the maximum delays stated in the data sheets, therefore , for reliable operation of a system, it is necessary to know wait after the clock pulse until the data is ealuated.
+
+MTBF can be improved appreciably by multileve synchronization
+
+
+
+<img width="556" alt="Picture9" src="https://github.com/user-attachments/assets/c494f83e-ea07-4797-9917-a5147934df00">
+
+**Block Diagram of Two-Level Synchronization**
+
+The second flipflop can only go into a metastable state if the flip-flop is already metastable. This metastablility can considerably increase the delay of the first flip-flop. But if the period of the clock signal is no longer than the sum of the increased delay plus the setup time of the second flipflop can never go into a metastable state.
+
+
+
+<img width="534" alt="image" src="https://github.com/user-attachments/assets/73c9f8e5-cb4b-4604-b21c-811fd0cecea4">
+
+
+**Timing Diagram for Two-level synchronization**
+
+To measure metastability, conventional concurrent read/write FIFOs were operated region and the READ CLOCK input signal and EMPTYbar output signal were recorded for a period of 15  hours using a storage oscilloscope.
+
+
+<img width="590" alt="image" src="https://github.com/user-attachments/assets/b2ac8c3e-f178-4ff5-90ab-cbf8307e281d">
+
+
+**Signals of FIFO with Single-level Synchronization recorded for 15 hours under worst-case conditions**
+
+
+The synchronizing flip-flops sometimes decides for 1 level and sometimes for a 0 level on the first clock edge. In some cases, the decision is obviously difficult for the flip-flop because it takes more time than normal. After the second clock edge, the output  is stable again in every case.
+
+<img width="613" alt="image" src="https://github.com/user-attachments/assets/bf08a90f-c62d-48fc-9e51-9a52fe27d0a1">
+
+**Signals of TI SN75ACT7807 FIFO with Three level synchronization**
+
+
+
+
+
+
 
 
