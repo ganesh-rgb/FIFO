@@ -133,10 +133,100 @@ The synchronizing flip-flops sometimes decides for 1 level and sometimes for a 0
 
 **Signals of TI SN75ACT7807 FIFO with Three level synchronization**
 
+#### ASYNCHRONOUS FIFOs:
+
+The control signals of an asynchronous FIFO correspond most closely to human intuition and were, in the past, the only kind
+of FIFO driving. the control lines of an asynchronous FIFO,
+typical timing on these lines in a read and write operation.
+
+
+<img width="428" alt="image" src="https://github.com/user-attachments/assets/1e2caff0-38ee-49d4-82a3-e90c81a91d45">
+
+**Connections of Asynhronous FIFO**
+
++ The control lines WRITE CLOCK and FULLbar are used to write data. When a data word is to be written into an asynchronous
+FIFO, it is first necessary to check whether there is space available in the FIFO. This is done by querying the FULL status line.
+
++ If free space is indicated, the data word is applied to the data inputs and written into the FIFO by a clock edge on the WRITE CLOCK input.
+
+  
++ In analogous fashion, the control lines READ CLOCK and EMPTY are used to read data. In this case, the EMPTYbar status output has to be queried before reading, because data can be read out only if it is stored in the FIFO. Then, a clock edge is applied to the READ CLOCK input, causing the first word in the data queue to appear on the data output.
+
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/598a63b9-8b00-4b24-9ef6-cbd4ff41b00f">
+
+
+**Timing Diagram for 4-bit Asychronous FIFO**
+
++ The timing diagram  shows the resetting of the FIFO that is always necessary at the beginning. Then, three data words are written in. The data words D1 through D3 appear one after the other on the INPUT DATA inputs and clock edges are applied to WRITE CLOCK for transfer of the data. Once the first data word has been written into the FIFO, the EMPTYbar signal changes from low level to high level.
+
++   Another two data words are written into the FIFO before the first read cycle. The subsequent reading out of the first data word with the aid of a clock edge on READ CLOCK does not alter the status signals. With the
+writing of another two data words, the FIFO is full.
+
+ + This is indicated by the FULL signal. Finally, the four data words D2 through D5 remaining in the FIFO are read out. Thus, the FIFO is empty again, so the EMPTYbar status line shows this by low level.
+
+The disadvantage of a FIFO of this kind is that the status signals cannot be fully synchronized with the read and write clock.
 
 
 
+<img width="434" alt="image" src="https://github.com/user-attachments/assets/d6c568d6-b42a-4d5b-8083-14860834fec2">
+
+**Asynchronism When resetting FULLbar signal**
+
++ If there is space in the FIFO for only one data word, the next write cycle sets the FULL signal. Then, the writing system queries the FULL signal with the aid of its D flip-flop and waits until there is again space in the FIFO.
+
+ + When a data word is read, READ CLOCK resets the FULL status line. This reset is synchronous with the reading system but asynchronous to the writing system.
+
++ In the worst case, the setup or hold time of the flip-flop in the writing system is violated. This flip-flop goes into a metastable
+state, the results of which were discussed previously.
+
++ The problem described above also occurs with the EMPTY status signal. EMPTY should be synchronous with the reading system, but it is reset by the writing system. So, the resetting of EMPTY is inevitably asynchronous to the reading system.
+
++ This asynchronism is a result of the system, and synchronization is not possible within the asynchronous FIFO. If synchronization becomes necessary, the designer must provide it externally.
+
+##### Synchronous FIFO:
+
++ Synchronous FIFOs are controlled based on methods of control proven in processor systems. Every digital processor system works synchronized with a system-wide clock signal. This system timing continues to run even if no actions are being executed.
+
++ Enable signals, also often called chip-select signals, start the synchronous execution of write and read operations in the various
+devices, such as memories and ports.
+
++ The block diagram  shows all the signal lines of a synchronous FIFO. It requires a free-running clock from the writing system and another from the reading system. Writing is controlled by the WRITE ENABLE input synchronous with WRITE CLOCK.
+
++ The FULL status line can be synchronized entirely with WRITE CLOCK by the free-running clock. In an analogous manner, data words are read out by a low level on the READ ENABLE input synchronous with READ CLOCK.
+  
++ Here, too, the free-running clock permits 100 percent synchronization of the EMPTY signal with READ CLOCK.
+
+  <img width="286" alt="image" src="https://github.com/user-attachments/assets/52b5e03b-d5f3-4c10-bbab-27e3e447c7f7">
+
+  **Connections of Synchronous FIFO**
+
+  + Thus, synchronous FIFOs are integrated easily into common processor architectures, offering complete synchronism of the
+FULL and EMPTY status signals with the particular free-running clock.
 
 
+<img width="357" alt="image" src="https://github.com/user-attachments/assets/77af4e07-c976-4717-a692-b41c81e87eda">
+
+**Timing Diagram of Synchronous FIFO of 4-bit length**
+
++ WRITE CLOCK and READ CLOCK are free running. The writing of new data into the FIFO is initialized by a low level on the WRITE ENABLE line. The data are written into the FIFO with the next rising edge of WRITE CLOCK.
+
++   In analogous fashion, the READ ENABLE line controls the reading out of data synchronous with READ CLOCK.
+All status lines within the FIFO can be synchronized by the two free-running-clock signals. The FULL line only changes its
+level synchronously with WRITE CLOCK, even if the change is produced by the reading of a data word. Likewise, the EMPTY
+signal is synchronized with READ CLOCK. A synchronous FIFO is the only concurrent read/write FIFO in which the status
+signals are synchronized with the driving logic.
+  
+**NOTE: All TI Synchronous FIFOs feature multilevel synchronization of the status lines**
+
++ **My Synchronous FIFO's Elaborated Design**
+
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/595685c2-e422-40c5-9a91-63e7cc1b89b8">
+
+  <img width="858" alt="image" src="https://github.com/user-attachments/assets/53ffa243-4335-4ff8-9420-57598b8199f9">
+
+
++ **Simulation Results**
+
+  <img width="932" alt="image" src="https://github.com/user-attachments/assets/7b2bc39e-fc30-4c89-831f-9a719a1ef3ba">
 
 
