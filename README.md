@@ -225,7 +225,7 @@ signals are synchronized with the driving logic.
   <img width="858" alt="image" src="https://github.com/user-attachments/assets/53ffa243-4335-4ff8-9420-57598b8199f9">
 
 
-+ **Simulation Results**
++ **Synchronous FIFO Simulation Results**
 
   <img width="932" alt="image" src="https://github.com/user-attachments/assets/7b2bc39e-fc30-4c89-831f-9a719a1ef3ba">
 
