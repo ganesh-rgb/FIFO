@@ -10,7 +10,7 @@
 // Tool Versions: Synopsys VCS 2008.12
 // Description: 
 // 
-// Dependencies: xc7a100tcsg324-1
+// Dependencies: 
 // 
 // Revision:
 // Revision 0.01 - File Created
