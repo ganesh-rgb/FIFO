@@ -2,7 +2,7 @@
 // Company:  Takshila Intitute of VLSI Technologies
 // Engineer: ASIC DESIGN VERIFICATION 
 // 
-// Create Date: 03.10.2024 15:28:55
+// Create Date: 07.10.2024 15:40:55
 // Design Name: FIFO 
 // Module Name: ASYNCHRONOUS FIFO
 // Project Name: SYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
