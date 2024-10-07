@@ -13,9 +13,9 @@ In electronic systems, buffers of this kind also are **advisable for interfaces 
 In a compact-disk player for instance, the speed of rotation of the disk determines the data rate. To make the reproduced sound fluctuations independent fo the speed, the data rate of A/D converter is  controlled by a quartz crystal. The **different data rates are compensated by buffering**. In this way, the sound fluctuations are largely independent of the speed at which disks rotate.
 
 
-A FIFO is a special type of buffer. The name FIFO stands for first in first out and means that ****the data written into the buffer first come out of its first**. There are other kinds of buffers like the **LIFO(last in first out)** often called stack memory. and the shared memory. The choice o buffer architecture depends on the application to be solved.
+A FIFO is a special type of buffer. The name FIFO stands for first in first out and means that **the data written into the buffer first come out of its first**. There are other kinds of buffers like the **LIFO(last in first out)** often called stack memory. and the shared memory. The choice of buffer architecture depends on the application to be solved.
 
-FIFOs can be implemented with software or hardware. The choice between a software and hardware solution depends on the application and the features desired. When rquirements change, a software FIFO easily to the by modifying the program. While a **Hardware FIFO** may demand a new boardlayout. Software is more flexible than hardware. The advantage of the hardware FIFOs shows in their  speed. A datarate of 3.6 gigabit per second is specified for **Texas Instruments model SN74ABT7819 FIFO**
+FIFOs can be implemented with software or hardware. The choice between a software and hardware solution depends on the application and the features desired. When rquirements change, a software FIFO easily to the by modifying the program. While a **Hardware FIFO**  demand a new boardlayout. Software is more flexible than hardware. The advantage of the hardware FIFOs shows in their  speed. A datarate of 3.6 gigabit per second is specified for **Texas Instruments model SN74ABT7819 FIFO**
 
 ***FIFO TYPES***
 Every memory in which the data word that is written first also comes out first when the memory is read is a first-in-first-out memory. 
@@ -61,7 +61,7 @@ The designer need not worry about **synchronizing** the two systems because this
 + Asynchronous FIFOs
 
 **Metastability of Synchronizing Circuits**:
-In digital engineering, there is the constantly recurring problem of synchronizing two systems that work at different frequencies, Concurrent read/write FIFOs can also handle the data exchange between two systems of different frequencies, so internal synchronizing  circuits are called for. This section is a brief introduction to the problems that are involved in synchronization.
+In digital engineering, there is the constantly recurring problem of synchronizing two systems that work at different frequencies, Concurrent read/write FIFOs can also handle the data exchange between two systems of different frequencies, so internal synchronizing  circuits are called for. This section is a brief introduction to the problems that are involved in synchronization
 
 The problem of synchronizing  an external signal with a local clock generator is solved by using a flip-flop. but this means violating the setup and hold times stated in the data sheets for the devices. As a result the flipflop can go into a metastable state.
 
@@ -95,11 +95,11 @@ MTBF = 1/fm x fclk x td
 for fclk = 1MHz,
 Fin of 1 KHz , and Td = 30 ps
 
-MTBF = 1/1 kHz x 1 MHz x 30 ps   = 33.3s
+**Mean time before failure(MTBF)** = 1/1 kHz x 1 MHz x 30 ps   = 33.3s
 
 
 
-if a flip-flop, it is used  to synchronize  two  signals, you can no longer  expect the maximum delays stated in the data sheets, therefore , for reliable operation of a system, it is necessary to know wait after the clock pulse until the data is ealuated.
+if a flip-flop, it is used  to synchronize  two  signals, you can no longer  expect the maximum delays stated in the data sheets, therefore , for reliable operation of a system, it is necessary to know wait after the clock pulse until the data is evaluated.
 
 MTBF can be improved appreciably by multileve synchronization
 
