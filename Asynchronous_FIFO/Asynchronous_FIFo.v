@@ -5,7 +5,7 @@
 // Create Date: 07.10.2024 15:40:55
 // Design Name: FIFO 
 // Module Name: ASYNCHRONOUS FIFO
-// Project Name: SYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
+// Project Name: ASYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
 // Target Devices: 
 // Tool Versions: Synopsys VCS 2008.12
 // Description: 
