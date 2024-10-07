@@ -1,3 +1,27 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company:  Takshila Intitute of VLSI Technologies
+// Engineer: ASIC DESIGN VERIFICATION 
+// 
+// Create Date: 03.10.2024 15:28:55
+// Design Name: FIFO 
+// Module Name: ASYNCHRONOUS FIFO
+// Project Name: SYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
+// Target Devices: 
+// Tool Versions: Synopsys VCS 2008.12
+// Description: 
+// 
+// Dependencies: xc7a100tcsg324-1
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 `include "synchronizer.v"
 `include "wptr_handler.v"
 `include "rptr_handler.v"
