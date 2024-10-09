@@ -1,7 +1,7 @@
 # FIFO
 In this repository, I have published my knowledge gained while working on FIFOs that handle variable length data  implementation using Verilog, System Verilog, UVM
 
-First-in-first-out memories (FIFOs) have progressed from  fairly simple logic functions to high-speed buffers incorporating large blocks of SRAM. This application report takes a detailed look at the evolution of FIFO device functionality and at the architecture and application of FIFO devices. The first part presents the different functions of FIFOs and resulting types that are found. The second part deals withb current FIFOs architecture and the different ways in where they work.
+First-in-first-out memories (FIFOs) have progressed from  fairly simple logic functions to high-speed buffers incorporating large blocks of SRAM. This application report takes a detailed look at the evolution of FIFO device functionality and at the architecture and application of FIFO devices. The first part presents the different functions of FIFOs and resulting types that are found. The second part deals with current FIFOs architecture and the different ways in where they work.
 
 ## Introduction:
 In every item of digital equipment there is exchange of data between PCBs . Intermediate storage or buffering is always necesary when data arrive at the receiving PCB at a high rate or in batches, but processed slowly or irregularly.
