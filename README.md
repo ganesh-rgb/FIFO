@@ -1,3 +1,32 @@
+
+**My Synchronous FIFO's Elaborated Design**
+
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/595685c2-e422-40c5-9a91-63e7cc1b89b8">
+
+  <img width="858" alt="image" src="https://github.com/user-attachments/assets/53ffa243-4335-4ff8-9420-57598b8199f9">
+
+
++ **Synchronous FIFO Simulation Results**
+
+  <img width="932" alt="image" src="https://github.com/user-attachments/assets/7b2bc39e-fc30-4c89-831f-9a719a1ef3ba">
+
+**Asynchronous FIFO's Elaborated Design**
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/8c10c68d-5be0-4c0c-892b-86d4370f5570">
+
+<img width="952" alt="image" src="https://github.com/user-attachments/assets/7c87e4fc-f2fb-40f4-a9bc-605e280f91ca">
+
++ **Asynchronous FIFO's Simulation Results**
+  <img width="932" alt="image" src="https://github.com/user-attachments/assets/d2d0157c-aa40-457e-9f7e-a86f74288ad5">
+
+
+
+
+
+
+
+
+
+
 # FIFO
 In this repository, I have published my knowledge gained while working on FIFOs that handle variable length data  implementation using Verilog, System Verilog, UVM
 
@@ -217,18 +246,3 @@ signal is synchronized with READ CLOCK. A synchronous FIFO is the only concurren
 signals are synchronized with the driving logic.
   
 **NOTE: All TI Synchronous FIFOs feature multilevel synchronization of the status lines**
-
-+ **My Synchronous FIFO's Elaborated Design**
-
-  <img width="700" alt="image" src="https://github.com/user-attachments/assets/595685c2-e422-40c5-9a91-63e7cc1b89b8">
-
-  <img width="858" alt="image" src="https://github.com/user-attachments/assets/53ffa243-4335-4ff8-9420-57598b8199f9">
-
-
-+ **Synchronous FIFO Simulation Results**
-
-  <img width="932" alt="image" src="https://github.com/user-attachments/assets/7b2bc39e-fc30-4c89-831f-9a719a1ef3ba">
-
-+ **Asynchronus_FIFO_Simulation Results**
-  <img width="913" alt="image" src="https://github.com/user-attachments/assets/5309ff4b-41db-474d-8dca-dd1a9b6308a6">
-
