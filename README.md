@@ -43,6 +43,18 @@
 
 
 
+**DEPTH CALCULATION**
+The period of write clock = 1/100MhZ = 10ns
+The period of read clock = 1/40MhZ = 25ns
+The transaction length = 10 bytes
+time require to write the 10 bytes = 100ns
+The number of bytes has been read during the writing operation = 100/25 = 4bytes
+
+So, the required fifo depth 
+= total bytes per transaction - no of bytes has been read = 10 = 4 = 6
+
+But for Convinient purposes, I have taken 8 bytes 
+
 
 
 
