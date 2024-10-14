@@ -98,3 +98,70 @@ module Async_FIFO #(parameter FIFO_DEPTH = 8,
   dff_Sync2#(FIFO_DEPTH) dff_sync2_rd_ptr(.clk(i_wClk), .reset_n(reset_n), .i_D(r_Rd_Ptr_G), .o_Q_Synced(r_Rd_Ptr_Synced));
 
 endmodule
+
+
+module Async_FIFO_TB();
+  
+  parameter DATA_WIDTH = 8;
+  reg                   i_wClk;
+  reg                   i_rClk;
+  reg                   reset_n;
+  reg [DATA_WIDTH-1:0]  i_wData;
+  reg                   i_wEN;
+  reg                   i_rEN;
+  wire[DATA_WIDTH-1:0]  o_rData;    
+  wire                  o_Full;
+  wire                  o_Empty;
+  
+  //Instantiate the DUT
+  Async_FIFO#(8,8)  DUT(
+    
+    .i_wClk              (i_wClk),
+    .i_rClk              (i_rClk),
+    .reset_n             (reset_n),
+    .i_wData             (i_wData),
+    .i_wEN               (i_wEN),
+    .i_rEN               (i_rEN),
+    .o_rData             (o_rData),
+    .o_Full              (o_Full),
+    .o_Empty             (o_Empty)    
+  );
+  
+  //Generate the Read/Write Clocks 
+  always #5 i_wClk = ~i_wClk;  
+  always #5 i_rClk = ~i_rClk;
+  
+  //Initialize and Drive the DUT Signals 
+  initial begin
+    i_wClk = 0;
+    i_rClk = 1;
+    i_rEN = 0;
+    i_wEN = 0;
+    reset_n = 1;
+    #2; reset_n = 0;
+    #3; reset_n = 1;
+    @(posedge i_wClk); i_wEN = 1; i_wData = 8'hAA;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hAB;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hAC;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hAD;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hAE;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hAF;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hBA;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hCA;
+    @(posedge i_wClk); if(~o_Full)i_wData = 8'hDA;
+    @(posedge i_rClk); i_rEN = 1;
+    @(posedge i_wClk); i_wEN = 1; if(~o_Full)i_wData = 8'hBB;
+    @(posedge i_wClk); i_wEN = 1;
+    @(posedge i_wClk); i_wEN = 1;
+    @(posedge i_wClk); i_wEN = 1; if(~o_Full)i_wData = 8'hBB;
+    @(posedge i_wClk); i_wEN = 0;
+    #500;
+    $finish();
+  end
+  
+  //Signal dumping to wave window
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+  end
+endmodule
