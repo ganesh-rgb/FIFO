@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Takshila Institute of VLSI Technologies
+// Engineer: Ganesh Boppudi, ASIC Design Verification
+// 
+// Create Date: 14.10.2024 11:17:21
+// Design Name: 2 Flip Flops Synchronizer
+// Project Name: DESIGN & VERIFICATION OF Asynchronous FIFO for solving data miss problems in Clock Domain Crossing (CDC) given in Simulation and Synthesis Techniques for Asynchronous FIFO Design
+// Target Devices: 
+// Tool Versions: VIVADO 2023.1 
 
 module DF_SYNC(
 RST,CLK,DATA_IN,SYNC_OUT
