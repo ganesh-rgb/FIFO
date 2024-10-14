@@ -8,15 +8,7 @@
 // Project Name: DESIGN & VERIFICATION OF ASYNCHRONOUS FIFO
 // Target Devices: 
 // Tool Versions: VIVADO 2023.1 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 
 module Async_fifo(wclk,rclk,rst,data_in,data_out,wr,rd,full,empty,over_flow,under_flow);
 input wclk,rclk,rst,wr,rd;
