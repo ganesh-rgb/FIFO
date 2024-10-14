@@ -19,13 +19,27 @@
   <img width="932" alt="image" src="https://github.com/user-attachments/assets/d2d0157c-aa40-457e-9f7e-a86f74288ad5">
 
 
+
+
 + **Elaborated Design of Asynchronous FIFO using Gray pointer & 2 Flipflop Synchronizer**
   <img width="942" alt="image" src="https://github.com/user-attachments/assets/68d72658-fe30-4d1d-ab4f-ee7be35e9b7d">
 
   <img width="953" alt="image" src="https://github.com/user-attachments/assets/a29aaac4-6c0b-40cf-824c-a2d525a21e9b">
 
-  + **Simulation Results**
++  **Simulation Results**
     <img width="952" alt="image" src="https://github.com/user-attachments/assets/7d1fae2a-a91f-4c48-b1d7-76bc1dfdbce0">
+
+
+
+
+**Elaborated Design for Asynchronous FIFO for solving data miss problems in Clock Domain Crossing (CDC) given in Simulation and Synthesis Techniques for Asynchronous FIFO Design**
+<img width="950" alt="image" src="https://github.com/user-attachments/assets/85cd388b-277e-483a-b9f6-f3bfeb4c9980">
+
+<img width="943" alt="image" src="https://github.com/user-attachments/assets/a1299ac9-d51a-471a-b7fc-f3f7b38dcb6d">
+
++  **Simulation Results**
+  <img width="941" alt="image" src="https://github.com/user-attachments/assets/6cc4f1e9-a4d7-40de-9048-1a86b42a6229">
+
 
 
 
