@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Takshila Institute of VLSI Technologies
+// Engineer: Ganesh Boppudi, ASIC Design Verification
+// 
+// Create Date: 14.10.2024 11:12:02
+// Design Name: AsynchronousFIFO using binary to gray and Synchronizer
+// Project Name: DESIGN & VERIFICATION OF ASYNCHRONOUS FIFO
+// Target Devices: 
+// Tool Versions: VIVADO 2023.1 
+
 `include "diff_Sync2.v"
 `include "binary2gray.v"
 module Async_FIFO #(parameter FIFO_DEPTH = 8,
