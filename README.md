@@ -19,6 +19,16 @@
   <img width="932" alt="image" src="https://github.com/user-attachments/assets/d2d0157c-aa40-457e-9f7e-a86f74288ad5">
 
 
++ **Elaborated Design of Asynchronous FIFO using Gray pointer & 2 Flipflop Synchronizer**
+  <img width="942" alt="image" src="https://github.com/user-attachments/assets/68d72658-fe30-4d1d-ab4f-ee7be35e9b7d">
+
+  <img width="953" alt="image" src="https://github.com/user-attachments/assets/a29aaac4-6c0b-40cf-824c-a2d525a21e9b">
+
+  + **Simulation Results**
+    <img width="952" alt="image" src="https://github.com/user-attachments/assets/7d1fae2a-a91f-4c48-b1d7-76bc1dfdbce0">
+
+
+
 
 
 
