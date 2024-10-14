@@ -32,7 +32,7 @@
 
 
 
-**Elaborated Design for Asynchronous FIFO for solving data miss problems in Clock Domain Crossing (CDC) given in Simulation and Synthesis Techniques for Asynchronous FIFO Design**
++  **Elaborated Design for Asynchronous FIFO for solving data miss problems in Clock Domain Crossing (CDC) given in Simulation and Synthesis Techniques for Asynchronous FIFO Design**
 <img width="950" alt="image" src="https://github.com/user-attachments/assets/85cd388b-277e-483a-b9f6-f3bfeb4c9980">
 
 <img width="943" alt="image" src="https://github.com/user-attachments/assets/a1299ac9-d51a-471a-b7fc-f3f7b38dcb6d">
