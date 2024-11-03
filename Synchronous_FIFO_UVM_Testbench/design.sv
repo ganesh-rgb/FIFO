@@ -1,4 +1,22 @@
-// Code your design here 
+//////////////////////////////////////////////////////////////////////////////////
+// Company:  Takshila Intitute of VLSI Technologies
+// Engineer: Ganesh Boppudi, ASIC DESIGN VERIFICATION 
+// 
+// Create Date: 09.10.2024 16:28:55
+// Design Name: FIFO
+// Module Name: SYNCHRONOUS FIFO
+// Project Name: SYNCHRONOUS FIFO MODULE  WITH DATA OF VARIABLE LENGTH
+// Target Devices: 
+// Tool Versions: Synopsis VCS 2023.09
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 module FIFO_memory(clk,
     reset,
