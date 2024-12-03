@@ -1,0 +1,835 @@
+QuestaSim-64 qrun 2023.1 Utility 2023.01 Jan 23 2023
+Start time: 01:11:41 on Dec 03,2024
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2023.1 Compiler 2023.01 Jan 23 2023
+Start time: 01:11:41 on Dec 03,2024
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -csession=incr -writesessionid "+qrun.out/top_dus" -statslog qrun.out/stats_log 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module async_fifo
+-- Compiling module async_fifo
+** Warning: ** while parsing file included at testbench.sv(39)
+** at design.sv(1): (vlog-2275) Existing module 'async_fifo' at line 1 will be overwritten.
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling interface fifo_wif
+-- Compiling interface fifo_rif
+-- Compiling module async_fifo
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 01:11:44 on Dec 03,2024, Elapsed time: 0:00:03
+Errors: 0, Warnings: 1
+QuestaSim-64 vopt 2023.1 Compiler 2023.01 Jan 23 2023
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+Start time: 01:11:44 on Dec 03,2024
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels /home/runner/qrun.out/work+0+ -work qrun.out/work -statslog qrun.out/stats_log -o qrun_opt 
+
+Top level modules:
+	testbench
+
+Analyzing design...
+-- Loading module testbench
+-- Loading package questa_uvm_pkg
+-- Loading interface fifo_wif
+-- Loading interface fifo_rif
+-- Loading module async_fifo
+Optimizing 9 design-units (inlining 0/4 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing module async_fifo(fast)
+-- Optimizing module testbench(fast)
+-- Optimizing interface fifo_wif(fast__2)
+-- Optimizing interface fifo_rif(fast__2)
+-- Optimizing interface fifo_rif(fast)
+-- Optimizing interface fifo_wif(fast)
+Optimized design name is qrun_opt
+End time: 01:11:54 on Dec 03,2024, Elapsed time: 0:00:10
+Errors: 0, Warnings: 1
+# vsim -batch -voptargs="+acc=npr" -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log -csession=incr 
+# Start time: 01:11:54 on Dec 03,2024
+# Loading /tmp/unknown@8e6d523faa98_dpi_8/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2023.1 linux_x86_64 Jan 23 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.fifo_wif(fast)
+# Loading work.fifo_rif(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.testbench(fast)
+# Loading work.fifo_wif(fast__2)
+# Loading work.fifo_rif(fast__2)
+# Loading work.async_fifo(fast)
+# Compiling /tmp/unknown@8e6d523faa98_dpi_8/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@8e6d523faa98_dpi_8/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test fifo_base_test...
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               fifo_base_test          -     @366 
+#   env                      fifo_env                -     @378 
+#     ragent                 fifo_ragent             -     @394 
+#       rcov                 fifo_rcov               -     @560 
+#         analysis_imp       uvm_analysis_imp        -     @568 
+#       rdrv                 fifo_rdrv               -     @403 
+#         rsp_port           uvm_analysis_port       -     @420 
+#         seq_item_port      uvm_seq_item_pull_port  -     @411 
+#       rmon                 fifo_rmon               -     @552 
+#         rap_port           uvm_analysis_port       -     @578 
+#       rsqr                 uvm_sequencer           -     @429 
+#         rsp_export         uvm_analysis_export     -     @437 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @543 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     wagent                 fifo_wagent             -     @386 
+#       wcov                 fifo_wcov               -     @751 
+#         analysis_imp       uvm_analysis_imp        -     @759 
+#       wdrv                 fifo_wdrv               -     @594 
+#         rsp_port           uvm_analysis_port       -     @611 
+#         seq_item_port      uvm_seq_item_pull_port  -     @602 
+#       wmon                 fifo_wmon               -     @743 
+#         wap_port           uvm_analysis_port       -     @769 
+#       wsqr                 uvm_sequencer           -     @620 
+#         rsp_export         uvm_analysis_export     -     @628 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @734 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+# --------------------------------------------------------------
+# 
+# UVM_INFO fifo_test.sv(23) @ 0: uvm_test_top [uvm_test_top] run_phase of fifo_base_test
+# UVM_INFO fifo_wseq.sv(12) @ 0: uvm_test_top.env.wagent.wsqr@@wseq [uvm_test_top.env.wagent.wsqr.wseq] body of fifo_wbase_wseq
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @812                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h13                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    0                                
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 10: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 25: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x13
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @874                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h70                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    25                               
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 35: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 45: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x70
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @894                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h8a                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    45                               
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 55: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 65: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x8a
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @914                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h79                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    65                               
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 75: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 85: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x79
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @934                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h4e                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    85                               
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 95: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 105: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x4e
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @954                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h33                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    105                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 115: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 125: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x33
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @974                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h98                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    125                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 135: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 145: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x98
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @994                             
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h77                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    145                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 155: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 165: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x77
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1014                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'hba                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    165                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 175: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 185: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xba
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1034                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'he0                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    185                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 195: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 205: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xe0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1054                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h59                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    205                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 215: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 225: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x59
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1074                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'hcb                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    225                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 235: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 245: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xcb
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1094                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h5f                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    245                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 255: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 265: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x5f
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1114                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h36                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    265                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 275: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 285: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x36
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1134                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'ha0                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    285                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 295: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 305: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xa0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1154                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'hea                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    305                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 315: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 325: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xea
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1174                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h92                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    325                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 335: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 345: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x92
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1194                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h53                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    345                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 355: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 365: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x53
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1214                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'hb0                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    365                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 375: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 385: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0xb0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_wtx  -     @1234                            
+#   wwr_en                       integral  1     'h1                              
+#   wwdata                       integral  8     'h3b                             
+#   wfull                        integral  1     'h0                              
+#   wwr_err                      integral  1     'h0                              
+#   begin_time                   time      64    385                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     wseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.wagent.wsqr.wseq
+#   sequencer                    string    28    uvm_test_top.env.wagent.wsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_wdrv.sv(28) @ 395: uvm_test_top.env.wagent.wdrv [WRITE_DRIVE_WTX] fifo_wdrive_wtx of fifo_wdrv
+# UVM_INFO fifo_wdrv.sv(35) @ 405: uvm_test_top.env.wagent.wdrv [FIFO_WDRV] WRITE : Data = 0x3b
+# UVM_INFO fifo_rseq.sv(12) @ 405: uvm_test_top.env.ragent.rsqr@@rseq [uvm_test_top.env.ragent.rsqr.rseq] body of fifo_rbase_rseq
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1267                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    405                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 415: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 450: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1304                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    450                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 460: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 490: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x13
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1336                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    490                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 500: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 530: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x70
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1368                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    530                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 540: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 570: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x8a
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1400                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    570                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 580: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 610: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x79
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1432                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    610                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 620: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 650: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x4e
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1464                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    650                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 660: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 690: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x33
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1496                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    690                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 700: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 730: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x98
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1528                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    730                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 740: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 770: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x77
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1560                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    770                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 780: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 810: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xba
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1592                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    810                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 820: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 850: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xe0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1624                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    850                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 860: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 890: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x59
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1656                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    890                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 900: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 930: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xcb
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1688                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    930                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 940: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 970: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x5f
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1720                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    970                              
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 980: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1010: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0x36
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1752                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    1010                             
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 1020: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1050: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xa0
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1784                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    1050                             
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 1060: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1090: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xea
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1816                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    1090                             
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 1100: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1130: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xea
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1848                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    1130                             
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 1140: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1170: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xea
+# --------------------------------------------------------------------------------
+# Name                           Type      Size  Value                            
+# --------------------------------------------------------------------------------
+# req                            fifo_rtx  -     @1880                            
+#   rrd_en                       integral  1     'h1                              
+#   rrdata                       integral  8     'h0                              
+#   rempty                       integral  1     'h0                              
+#   rrd_err                      integral  1     'h0                              
+#   begin_time                   time      64    1170                             
+#   depth                        int       32    'd2                              
+#   parent sequence (name)       string    4     rseq                             
+#   parent sequence (full name)  string    33    uvm_test_top.env.ragent.rsqr.rseq
+#   sequencer                    string    28    uvm_test_top.env.ragent.rsqr     
+# --------------------------------------------------------------------------------
+# UVM_INFO fifo_rdrv.sv(28) @ 1180: uvm_test_top.env.ragent.rdrv [READ_DRIVE_RTX] fifo_rdrive_rtx of fifo_rdrv
+# UVM_INFO fifo_rdrv.sv(35) @ 1210: uvm_test_top.env.ragent.rdrv [FIFO_RDRV] READ : Data = 0xea
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 1210: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 1210: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   89
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [FIFO_RDRV]    20
+# [FIFO_WDRV]    20
+# [Questa UVM]     2
+# [READ_DRIVE_RTX]    20
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# [UVMTOP]     1
+# [WRITE_DRIVE_WTX]    20
+# [uvm_test_top]     1
+# [uvm_test_top.env.ragent.rsqr.rseq]     1
+# [uvm_test_top.env.wagent.wsqr.wseq]     1
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 1210 ns  Iteration: 75  Instance: /testbench
+# End time: 01:11:57 on Dec 03,2024, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   1
+#     vopt: Errors:   0, Warnings:   1
+#     vsim: Errors:   0, Warnings:   0
+#   Totals: Errors:   0, Warnings:   2

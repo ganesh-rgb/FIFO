@@ -1,0 +1,2 @@
+  CREATE_STREAM @0 {NAME:wseq T:Transactions SCOPE:uvm_test_top.env.wagent.wsqr STREAM:807}
+  CREATE_STREAM @405 {NAME:rseq T:Transactions SCOPE:uvm_test_top.env.ragent.rsqr STREAM:1262}
